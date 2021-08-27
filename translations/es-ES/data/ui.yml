@@ -8,6 +8,14 @@ header:
     localization_complete: Frecuentemente publicamos actualizaciones de nuestra documentación. Es posible que la traducción de esta página esté en curso. Para conocer la información más actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>. Si existe un problema con las traducciones en esta página, por favor <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">infórmanos</a>.
     localization_in_progress: '¡Hola, explorador! Esta página está bajo desarrollo activo o todavía está en la etapa de traducción. Para obtener información más actualizada y precisa, visita nuestra <a id="to-english-doc" href="/en">documentación en inglés</a>.'
     early_access: '📣 Por favor, <b>no compartas</b> esta URL públicamente. Esta página tiene contenido sobre una característica de acceso temprano.'
+    release_notes_use_latest: Por favor, utiliza el lanzamiento más reciente para las últimas correcciones de seguridad, rendimiento y errores.
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
+release_notes:
+  banner_text_current: These changes will roll out over the next one week.
+  banner_text_past: These changes rolled out to enterprises during the week of
 search:
   need_help: '¿Necesitas ayuda?'
   placeholder: Busca temas, productos...
@@ -16,12 +24,13 @@ homepage:
   version_picker: Versión
 toc:
   getting_started: Empezar
-  popular_articles: Popular
+  popular: Popular
   guides: Guías
   whats_new: Qué hay de nuevo
 pages:
   article_version: 'Versión del artículo:'
   miniToc: En este artículo
+  contributor_callout: En este artículo contribuye y lo mantiene
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
@@ -31,39 +40,28 @@ support:
   still_need_help: '¿Aún necesitas ayuda?'
   contact_support: Contactar con soporte técnico
   ask_community: Pregúntale a la comunidad de GitHub
-helpfulness:
+survey:
   able_to_find: '¿Te ayudó este documento?'
   yes: true
   no: false
-  yes_feedback: '¿Quieres saber sobre las características y actualizaciónes de los documentos nuevos? ¡Regístrate para recibir actualizaciones!'
-  email_placeholder: email@ejemplo.com
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
   no_feedback: Estamos mejorando nuestros documentos constantemente. Nos encantaría saber cómo crees que podemos hacerlo aún mejor.
-  category_label: '¿Qué problema tuviste?'
-  category_default: Elige una opción
-  category_unclear: La información no estaba clara
-  category_confusing: El contenido era confuso
-  category_unhelpful: El artículo no respondió a mi pregunta
-  category_other: Otro
-  comment_label: Déjanos saber lo que podemos mejorar
+  comment_yes_label: Let us know what we do well
+  comment_no_label: Déjanos saber lo que podemos mejorar
   optional: Opcional
   required: Requerido
+  email_placeholder: email@ejemplo.com
   email_label: '¿Podemos contactarte si tenemos más preguntas?'
   send: Enviar
-  feedback: '¡Gracias! Tu retroalimentación se ha emitido.'
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Política de privacidad
 contribution_cta:
   title: '¡Ayúdanos a hacer geniales estos documentos!'
   body: Todos los documentos de GitHub son de código abierto. ¿Notas algo que esté mal o que no sea claro? Emite una solicitud de cambios.
   button: Haz una contribución
   or: O,
   to_guidelines: aprende cómo contribuir.
-enterprise_releases_list:
-  title: Lanzamientos de Enterprise Server
-  currently_supported: Actualmente compatibles
-  currently_supported_message: Consulta la sección de <a href="https://github.com/enterprise">GitHub Enterprise</a> para obtener más información sobre el último lanzamiento.
-  deprecated: Obsoletizado
-  deprecated_message: 'Estos documentos siguen estando disponibles, pero ya no se mantienen:'
-  deprecated_developer: Obsoletizado en developer.github.com
-  deprecated_developer_message: 'Estos documentos siguen estando disponibles en el <a href="https://developer.github.com">sitio de desarrollador</a> tradicional pero ya no se mantienen:'
 products:
   graphql:
     reference:
@@ -129,21 +127,39 @@ footer:
       press: Prensa
       shop: Tienda
 product_landing:
-  quick_start: Inicio Rápido
-  reference_guides: Guías de referencia
+  quickstart: Inicio Rápido
+  reference: Referencia
   overview: Resumen
+  guides: Guías
+  code_examples: Ejemplos de código
+  search_code_examples: Ejemplos de búsqueda de código
+  show_more: Mostrar más
+  explore_people_and_projects: Explorar personas y proyectos
+  sorry: Lo sentimos, no hay respultados para
+  no_example: Parece que no tenemos un ejemplo que se ajuste a tu filtro.
+  try_another: Inténtalo con otro archivo o agrega tu ejemplo de código.
+  no_result: Lo sentimos, no hay una guía que coincida con tu filtro.
+  learn: Aprende cómo agregar un ejemplo de código
+  communities_using_discussions: Comunidades que utilizan debates
+  add_your_community: Agrega tu comunidad
+  sponsor_community: Comunidad de GitHub Sponsors
+  supported_releases: Lanzamientos compatibles
+  release_notes_for: Notas de lanzamiento para
+  upgrade_from: Mejorar desde
+  browse_all_docs: Buscar todos los documentos
+  explore_release_notes: Explorar las notas de lanzamiento
 product_sublanding:
   start: Inicio
   start_path: Ruta de inicio
-  learning_paths: Ruta de aprendizaje
+  learning_paths: 'Rutas de aprendizaje de {{ productMap[currentProduct].name }}'
   learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
+  guides: 'Guías de {{ productMap[currentProduct].name }}'
   more_guides: más guías
   load_more: Carga más guías
-  all_guides: Todas las guías
-  no_result: Lo sentimos, no hay una guía que coincida con tu filtro.
+  all_guides: 'Todas las guías de {{ productMap[currentProduct].name }}'
   filters:
     type: Type
-    topic: Topic
+    topic: Tema
     all: Todas
   guide_types:
     overview: Resumen
@@ -152,5 +168,12 @@ product_sublanding:
     how_to: Guía instruccional
     reference: Referencia
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prevGuide: Guía previa
+  nextGuide: Guía siguiente
+toggle_images:
+  off: Las imágenes están inactivas, haz clic para mostrar
+  on: Las imágenes están activas, haz clic para ocultar
+  hide_single: Ocultar imagen
+  show_single: Mostrar imagen
+scroll_button:
+  scroll_to_top: Desplazarse hasta arriba
